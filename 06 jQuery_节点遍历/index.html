@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery_节点遍历</title>
+		<style type = "text/css"></style>
+		<script type = "text/javascript" src = "jquery-3.4.1.js"></script>
+	</head>
+	<body>
+		<!-- div#container>ul.list>(li.item>p{$})*5 -->
+		<div id="container">
+			<ul class="list">
+				<li class="item">
+					<p>1</p>
+				</li>
+				<li class="item">
+					<p>2</p>
+				</li>
+				<li class="item">
+					<p class="VIP">3</p>
+				</li>
+				<li class="item">
+					<p>4</p>
+				</li>
+				<li class="item">
+					<p>5</p>
+				</li>
+			</ul>
+		</div>
+		<script>
+			/* jQuery_节点遍历
+			   -->children-->所有的子元素
+			   -->parent-->最邻近的父元素
+			   -->parents-->父元素，父元素的父元素，可以加条件进行过滤，否则追溯到html
+			   -->find-->所有子元素下面符合过滤条件的那个
+			   -->next-->选中元素的后一个元素
+			   -->prev-->选中元素的前一个元素
+			   -->siblings-->选中当前元素节点的所有兄弟姐妹节点
+			 */
+			
+			//children
+			$("li:eq(1)").children().css("background","red");
+			
+			//parent
+			$("li:eq(1)").parent().css("color","blue");
+			
+			//parents
+			$("li:eq(1)").parents("div#container").append("<h2>新元素</h2>");
+			
+			//find
+			$("#container").find("p.VIP").css({
+				background:"black",
+				color:"white"
+			});
+			
+			//next
+			$("li:eq(1)").next().css("fontSize","25px");
+			
+			//prev
+			$("li:eq(1)").next().css({
+				fontSize:"30px",
+			});
+			
+			//siblings
+			$("li:eq(1)").siblings().css("fontWeight","bold");
+				
+		</script>
+	</body>
+</html>

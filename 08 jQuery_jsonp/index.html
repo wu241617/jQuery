@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery_jsonp</title>
+		<style type="text/css"></style>
+		<script type="text/javascript" src="jquery-3.4.1.js"></script>
+	</head>
+	<body>
+		
+		<script>
+			/* jQuery_jsonp跨域 */
+			$.ajax({
+				type:"get",
+				url:"https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su",
+				dataType:"jsonp",
+				jsonp:"cb",
+				data:{
+					wd:"json"
+				}
+			}).done(function(resp){
+				console.log(resp.s);
+			})
+		</script>
+	</body>
+</html>

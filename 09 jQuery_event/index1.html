@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type = "text/css"></style>
+		<script type = "text/javascript" src = "jquery-3.4.1.js"></script>
+	</head>
+	<body>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+		</ul>
+		<script>
+			/* 事件代理 */
+			$("ul").on("mouseover","li:even",function(){
+				$(this).css("background","red");
+			}).on("mouseout","li:even",function(){
+				$(this).css("background","blue");
+			})
+			
+			$("<li>newLi</li>").appendTo("ul");
+		</script>
+	</body>
+</html>

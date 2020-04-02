@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>滑动验证码</title>
+		<link rel="stylesheet" type="text/css" href="iconfont.css">
+		<style>
+			*{
+		      	marign: 0;
+		      	padding: 0;
+		      }
+		      .container{
+		      	width: 440px ;
+		      	height:40px;
+		      	margin: 80px auto;
+		        text-align: center;
+		        line-height: 40px;
+		      	position: relative;
+		      	border: 1px solid #888;
+		      }
+		      .bar{
+		        height: 40px;
+		        position: absolute;
+		        left: 0px;
+		        top: 0px;
+		        z-index: 100;
+		      }
+		      .bar .slide{
+		          width: 40px;
+		          height:40px;
+		          border: 1px solid #888;
+		          background: #fff;
+		          position: absolute;
+		          left: -1px;
+		          top: -1px;
+		
+		      }
+			</style>
+		<script src="jquery-3.4.1.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div class="container">
+			<span>向右移动完成验证</span>
+			<div class="bar">
+				<span class="content"></span>
+				<div class="slide"><i class="iconfont icon-xiangyou"></i></div>
+
+			</div>
+		</div>
+		<script>
+			$(function() {
+				var moveX;
+				var maxRange;
+				$('.slide').mousedown(function(e) {
+					var e = e || window.event;
+					var offset = $(".slide").offset().left;
+					var distance = e.pageX - offset
+					$(document).mousemove(function(e) {
+						var e = e || window.event;
+						var x = parseInt(e.pageX - offset - distance);
+						// 控制范围
+						maxRange = parseInt($(".container").width() - $(".slide").width());
+						// 滑动距离
+						moveX = Math.min(Math.max(0, x), maxRange);
+						$(".slide").css({
+							'left': moveX + 'px'
+						});
+						$(".bar").css({
+							width: moveX + 'px',
+							background: 'lightgreen'
+						});
+
+						if (moveX === maxRange) {
+							$(".content").text('验证成功');
+							$(".slide").html('<i class="iconfont icon-duihao"></i>')
+						}
+
+					});
+					$(document).mouseup(function() {
+						//清除mousemove事件
+						$(document).off('mousemove');
+						//--------- Begin ---------
+						if (moveX < maxRange) {
+							$(".slide").css("left", "0");
+							$(".bar").css("width", "0");
+							$(".content").text("");
+							$(".slide").html('<i class="iconfont icon-xiangyou"></i>');
+						}
+
+
+						//--------- End ---------
+					});
+				});
+			});
+		</script>
+	</body>
+</html>

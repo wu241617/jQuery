@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery_multiple(节点操作)</title>
+		<style type = "text/css"></style>
+		<script type = "text/javascript" src = "jquery-3.4.1.js"></script>
+	</head>
+	<body>
+		<!-- ul>li{$}*5 -->
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+		<button>删除子节点</button>
+		<button>删除子节点中的内容</button>
+		<script>
+			/* 
+			jQuery_multiple(节点操作)
+			 -->append/appendTo-->//插入到子节点末尾
+			 -->prepend/prependTo-->//插入到子节点起始位置
+			 -->after/insertAfter-->//插入到某个固定元素之后
+			 -->before/insertBefore-->//插入到某个固定元素之前
+			 -->remove//删除整个子节点$("li:last").remove();
+			 -->empty//删除子节点中的内容$("li:last").empty();
+			*/
+		   
+		   //$("body").append("<div><h1>新元素<h1></div>");
+		   $("<div><h1>新元素<h1></div>").appendTo("body");
+		   
+		   var $newLi = $("<li>0</li>");
+		   //$("ul").prepend($newLi);
+		   $newLi.prependTo("ul");
+		   
+		   //$("li:eq(3)").after("<li>3.5</li>");
+		   $("<li>3.5</li>").insertAfter("li:eq(3)");
+		   
+		   $("li:eq(2)").before("<li>1.5</li>")
+		   $("<li>1.2</li>").insertBefore("li:eq(2)");
+		   
+		   $("button:first").on("click",function(){
+			   $("li:last").remove();//删除整个子节点
+		   })
+		   
+		   $("button:last").click(function(){
+			   $("li:last").empty();//删除子节点中的内容
+		   })
+		</script>
+	</body>
+</html>

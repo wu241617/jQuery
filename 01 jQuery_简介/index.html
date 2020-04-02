@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery_简介</title>
+		<style type="text/css"></style>
+		<!-- 在线引用jQuery -->
+		<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+		<script type = "text/javascript">
+			/* 
+			 jQuery简介:-->JS库
+			 
+			 【1】,jQuery入门:
+========================================================================================================			 
+			 0,-->文档就绪函数
+				 $(document).ready(function(){
+				 
+				 --- jQuery functions go here ----
+				 
+				 });
+				 这是为了防止文档在完全加载（就绪）之前运行 jQuery 代码。
+========================================================================================================			 
+			 1,-->选择器 $   用法$("任意css3选择器")-->整体是一个jQuery实例
+			     $("input:eq(0)")-->序列中第几个
+				 $("p") 选取 <p> 元素。
+				 $("p.intro") 选取所有 class="intro" 的 <p> 元素。
+				 $("p#demo") 选取所有 id="demo" 的 <p> 元素。
+			jQuery 使用 XPath 表达式来选择带有给定属性的元素。
+				 $("[href]") 选取所有带有 href 属性的元素。
+				 $("[href='#']") 选取所有带有 href 值等于 "#" 的元素。
+				 $("[href!='#']") 选取所有带有 href 值不等于 "#" 的元素。
+				 $("[href$='.jpg']") 选取所有 href 值以 ".jpg" 结尾的元素。
+				 $(this) 	当前 HTML 元素
+==============================================================================================================			 
+			 2,-->属性: 
+			 html,-->相当于原生JS中innerHTML属性
+			 
+			 val,-->相当于原生JS中value属性
+			 
+			 attr,-->相当于原生JS中style.color = 的用法（行间）attrbuite	
+					 
+			 prop,-->相当于原生JS中widow.ComputerStyle()的用法(元素本身上)
+			 ===获得内容 - text()、html() 以及 val()
+			 text() - 设置或返回所选元素的文本内容
+			 html() - 设置或返回所选元素的内容（包括 HTML 标记）
+			 val() - 设置或返回表单字段的值
+			 
+			 ===设置内容 - text()、html() 以及 val()
+			     text() - 设置或返回所选元素的文本内容
+			     html() - 设置或返回所选元素的内容（包括 HTML 标记）
+			     val() - 设置或返回表单字段的值
+			 	
+			 ===text()、html() 以及 val()，同样拥有回调函数。回调函数由两个参数：
+			 被选元素列表中当前元素的下标，以及原始（旧的）值。
+			 然后以函数新值返回您希望使用的字符串。
+			 ===获取属性 - attr()
+			 attr() 方法用于获取属性值。
+			 
+			 attr-->标签上属性  获取:attr("checked")   设置:attr("checked","xxx")
+			 prop-->元素上属性  获取:prop("checked")   设置:prop("checked","xxx")
+			 
+=====================================================================================================			 
+			 addClass, removeClass, hasClass, toggleClass
+			     addClass() - 向被选元素添加一个或多个类
+			     removeClass() - 从被选元素删除一个或多个类
+			     toggleClass() - 对被选元素进行添加/删除类的切换操作
+			     css() - 设置或返回样式属性
+				 -->利用css属性修改任意样式
+				  css("backgroundColor","red");//一个参数
+				  css({//多个参数
+				 	 backgroundColor:"red",
+				 	 color:"white"
+				 	});
+				 $("p").css({"background-color":"yellow","font-size":"200%"});
+========================================================================================================
+            3,jQuery 尺寸 方法
+				width() 方法设置或返回元素的宽度（不包括内边距、边框或外边距）。
+				height() 方法设置或返回元素的高度（不包括内边距、边框或外边距）。
+				innerWidth() 方法返回元素的宽度（包括内边距）.
+				innerHeight() 方法返回元素的高度（包括内边距）。
+				outerWidth() 方法返回元素的宽度（包括内边距和边框）。
+				outerHeight() 方法返回元素的高度（包括内边距和边框）。
+
+==========================================================================================================			 
+			 -->动画:show/hide, fadeIn/fadeOut, shdeUp/shdeDown, animate/stop
+			 /* jQuery动画:
+			 $(selector).hide(speed,callback);
+			 $(selector).show(speed,callback);
+			 可选的 speed 参数规定隐藏/显示的速度，可以取以下值："slow"、"fast" 或毫秒。
+			 可选的 callback 参数是隐藏或显示完成后所执行的函数名称。
+			 
+			    -->show/hide
+			    show()显示的元素
+			    hide()隐藏的元素
+			    toggle() 方法来切换 hide() 和 show() 方法。显示被隐藏的元素，并隐藏已显示的元素：
+			 	
+			    -->fadeIn/fadeOut,（褪色-->透明度变化）
+			     fadeIn() 用于淡入已隐藏的元素。
+			     fadeOut() 方法用于淡出可见元素。
+			 	fadeToggle() 方法可以在 fadeIn() 与 fadeOut() 方法之间进行切换。
+			 	fadeTo() 方法允许渐变为给定的不透明度（值介于 0 与 1 之间）
+			 	$(selector).fadeTo(speed,opacity,callback);
+			    
+			    -->slideUp/slideDown, (拉窗帘式的收起和放下，垂直方向上)
+			    slideDown() 方法用于向下滑动元素。
+			    slideUp() 方法用于向上滑动元素。
+			    slideToggle() 方法可以在 slideDown() 与 slideUp() 方法之间进行切换。
+			    
+			    -->animate
+			    animate() 方法用于创建自定义动画。
+			    $(selector).animate({params},speed,callback);
+			    
+			    -->stop(stop-->停止当前运动的动画,//有参数true的时候，停止所有动画)
+			    $(selector).stop(stopAll,goToEnd);
+			    可选的 stopAll 参数规定是否应该清除动画队列。默认是 false，即仅停止活动的动画，允许任何排入队列的动画向后执行。
+			    可选的 goToEnd 参数规定是否立即完成当前动画。默认是 false
+			    因此，默认地，stop() 会清除在被选元素上指定的当前动画。
+			    
+			    -->Callback 函数在当前动画 100% 完成之后执行。
+			    $(selector).hide(speed,callback)
+			    
+			    -->Chaining 允许我们在一条语句中允许多个 jQuery 方法（在相同的元素上）。通过 jQuery，您可以把动作/方法链接起来。
+			    $("#p1").css("color","red").slideUp(2000).slideDown(2000);
+			 
+			 
+			 
+			
+=========================================================================================================	
+		  【2】,jQuery进阶:
+			 1,-->jQuery_节点遍历
+			       -->children-->所有的子元素
+			       -->parent-->最邻近的父元素
+			       -->parents-->父元素，父元素的父元素，可以加条件进行过滤，否则追溯到html
+				   -->parentsUntil() 方法返回介于两个给定元素之间的所有祖先元素。
+			       -->find-->所有子元素下面符合过滤条件的那个
+			       -->next-->选中元素的后一个元素
+				   -->nextAll() 方法返回被选元素的所有跟随的同胞元素。
+				   -->nextUntil() 方法返回介于两个给定参数之间的所有跟随的同胞元素。
+			       -->prev-->选中元素的前一个元素
+				   -->prevAll()
+				   -->prevUntil()
+			       -->siblings-->选中当前元素节点的所有兄弟姐妹节点
+			缩写搜索元素的范围
+			    first(), last() 和 eq()
+				filter() 方法允许您规定一个标准。不匹配这个标准的元素会被从集合中删除，匹配的元素会被返回。
+				not() 方法返回不匹配标准的所有元素。
+===============================================================================================================			 
+			2, -->dom操作
+			      -->append/appendTo
+			      -->prepend/prependTo
+			      -->after/insertAfter
+			      -->before/insertBefore
+				  -->remove();//删除整个子节点$("li:last").remove();
+			      -->empty();//删除子节点中的内容$("li:last").empty();
+				  -->元素的添加
+				  $("ul").append("<h2>新元素</h2>");-->向X中追加新元素
+				  $("<li>newLi</li>").appendTo("ul");-->追加新元素到X中 
+				  添加新的 HTML 内容
+				      append() - 在被选元素的结尾插入内容
+				      prepend() - 在被选元素的开头插入内容
+				      after() - 在被选元素之后插入内容
+				      before() - 在被选元素之前插入内容
+=======================================================================================================			 
+			 3,-->ajax
+			      -->get从指定的资源请求数据
+				  GET 基本上用于从服务器获得（取回）数据。注释：GET 方法可能返回缓存数据。当访问同一个url地址的时候，
+				  缓存的记录会是上次保存的，解决的方法，在url后面加时间戳
+				  
+				  -->post向指定的资源提交要处理的数据
+				  POST 也可用于从服务器获取数据。不过，POST 方法不会缓存数据，并且常用于连同请求一起发送数据。
+				  
+				  -->$.get() 方法通过 HTTP GET 请求从服务器上请求数据。
+				  $.get(URL,callback);
+				  
+				  -->$.post() 方法通过 HTTP POST 请求从服务器上请求数据。
+					  $.post(URL,data,callback);
+					  必需的 URL 参数规定您希望请求的 URL。
+					  可选的 data 参数规定连同请求发送的数据。
+					  可选的 callback 参数是请求成功后所执行的函数名。
+				  
+				  -->利用done和fail延时函数，解决回调地狱的问题(异步加载)
+				  
+			       -->jQuery load() 方法是简单但强大的 AJAX 方法。
+					load() 方法从服务器加载数据，并把返回的数据放入被选元素中。
+					$(selector).load(URL,data,callback);
+					必需的 URL 参数规定您希望加载的 URL。
+					可选的 data 参数规定与请求一同发送的查询字符串键/值对集合。
+					可选的 callback 参数是 load() 方法完成后所执行的函数名称。
+					可选的 callback 参数规定当 load() 方法完成后所要允许的回调函数。回调函数可以设置不同的参数：
+					    responseTxt - 包含调用成功时的结果内容
+					    statusTXT - 包含调用的状态
+					    xhr - 包含 XMLHttpRequest 对象
+
+========================================================================================================				  
+			 4,-->jsonp(跨域)
+	         jQuery noConflict() 方法
+	         noConflict() 方法会释放会 $ 标识符的控制，这样其他脚本就可以使用它了。
+=========================================================================================================			 
+			 5,-->事件
+			     -->事件绑定on();
+				 -->事件解绑off();
+				 -->事件代理
+				 -->jQuery 名称冲突
+				    jQuery 使用 $ 符号作为 jQuery 的简介方式。
+					某些其他 JavaScript 库中的函数（比如 Prototype）同样使用 $ 符号。
+					jQuery 使用名为 noConflict() 的方法来解决该问题。
+					var jq=jQuery.noConflict()，帮助您使用自己的名称（比如 jq）来代替 $ 符号。
+=============================================================================================================								 
+			 【3】,jQuery实战:
+			 
+			 1,-->jQuery_plugin(自定义插件)
+			     jQuery定义插件的四点需要注意的:
+			        1,jQuery的插件是定义在jQuery.fn(原型)的基础上 -->$.fn.extend({})
+			        2,命名冲突的解决 -->(function(){})() -->立即执行函数
+			        3,循环jQuery对象中的每个元素 -->(this.each())
+			        4,在函数中，将jQuery对象返回 -->(return this)
+============================================================================================================				 
+			 2,-->案例
+				 -->随机颜色
+				 -->放大镜
+			 
+			 */
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

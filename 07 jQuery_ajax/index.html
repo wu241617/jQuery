@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery_ajax</title>
+		<style type = "text/css"></style>
+		<script type = "text/javascript" src = "jquery-3.4.1.js"></script>
+	</head>
+	<body>
+		
+		<script>
+			/* 
+			jQuery_ajax 
+			-->get
+			-->post
+			*/
+			$.ajax({
+				type:"get",
+				url:"person.json",
+				data:{//传参数，自动加在url后，一起发送请求
+					name:"黄忠"
+				},
+				success:function(resp){
+					console.log(resp.hobby);
+				},
+				error:function(){
+					
+				}
+			})
+			
+			//利用done和fail延时函数，解决回调地狱的问题(异步加载)
+			/* $.ajax({
+				type:"get",
+				url:"person.json"
+			}).done(function(){
+				//发送成功时的代码
+			}).fail(function(){
+				//发送失败时的代码
+			}) */
+			
+			//当type为get的时候，可以省略不写
+			$.ajax({type:"get",url:"api1"}).done(function(){
+				return $.ajax({type:"post",url:"api2"})
+			}).done(function(){
+				return $.ajax({type:"post",url:"api3"})
+			}).done(function(){
+				console.log("回调结束！");
+			})
+			
+		</script>
+	</body>
+</html>

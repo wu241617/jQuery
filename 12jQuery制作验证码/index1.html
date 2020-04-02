@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>校验验证码</title>
+		<style>
+			*{
+		      	marign: 0;
+		      	padding: 0;
+		      }
+		      .container{
+		      	width: 260px ;
+		      	margin: 80px auto;
+		      }
+		      .vertify-code{
+		      	 width: 260px;
+		      	 height: 50px;
+		      	 margin-bottom: 20px;
+		      	 text-align: center;
+		      	 line-height: 50px;
+		      	 border: 1px solid #ccc;
+		      	 font-size: 24px;
+		
+		      }
+		      .check{
+		      	width: 150px;
+		      	height: 30px;
+		      	font-size: 16px;
+		      }
+		      .btn{
+		      	width: 150px ;
+		      	height: 30px;
+		      	margin-top: 20px;
+		      }
+		      .change{
+		      	display: inline-block;
+		      	width: 80px;
+		      	line-height: 30px;
+		      	text-align: center;
+		      }
+		      .change:hover{
+		      	cursor: pointer;
+		      }
+			</style>
+
+		<script src="jquery-3.4.1.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="vertify-code"></div>
+			<div class="vertify-area">
+				<input type="text" class="check" />
+				<span class="change">换一张</span>
+			</div>
+			<button class="btn">确定</button>
+		</div>
+
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+				num_random();
+
+				$(".change").click(function() {
+					num_random();
+				})
+
+				$(".btn").click(function() {
+					//-------- Begin --------
+					var val = $(".check").val().toUpperCase();
+					var text = $(".vertify-code").text().toUpperCase();
+
+
+					//-------- End ---------
+
+					if (val === text) {
+						alert("验证通过");
+					} else {
+						alert("验证失败");
+					}
+				});
+
+				function num_random() {
+					var arr_code = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+						'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
+						'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
+					];
+					var arr_color = ['#FF0033', '#006699', '#993366', '#FF9900', '#66CC66', '#FF33CC'];
+					var arr_back = ['#fffff0', '#f0ffff', '#f0fff0', '#fff0f0'];
+
+					var arr_weight = ['normal', 'bold', 'bolder', 'lighter'];
+					var arr_style = ['normal', 'italic', 'oblique'];
+
+					var index_back = Math.floor(Math.random() * 3);
+					var index_color = Math.floor(Math.random() * 5);
+					var str = '';
+					var num;
+
+					for (var i = 0; i < 6; i++) {
+						num = Math.floor(arr_code.length * Math.random());
+						str = str + arr_code[num];
+					}
+					$(".vertify-code").css({
+						background: arr_back[index_back],
+						color: arr_color[index_color],
+						fontWeight: arr_weight[index_back],
+						fontStyle: arr_style[index_back],
+					})
+					$(".vertify-code").text(str);
+
+				}
+			})
+		</script>
+	</body>
+</html>

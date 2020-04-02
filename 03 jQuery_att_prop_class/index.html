@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery_attr_prop_class</title>
+		<style type="text/css">
+			*{
+				margin:0;
+				padding:0;
+			}
+			div{
+				height:100px;
+				width:100px;
+				margin: 50px 0px 0px 50px;
+				cursor:pointer;
+			}
+			.play{
+				background-color:green;
+			}
+			.pause{
+				background-color:red;
+			}
+		</style>
+		<script type = "text/javascript" src = "jquery-3.4.1.js"></script>
+	</head>
+	<body>
+		<label>选中: <input type="checkbox" checked></label>
+		<div class="pause"></div>
+		<script>
+			/* 
+			===获取属性 - attr()
+			attr() 方法用于获取属性值。
+			
+			attr-->标签上属性  获取:attr("checked")   设置:attr("checked","xxx")
+			prop-->元素上属性  获取:prop("checked")   设置:prop("checked","xxx")
+			
+			class-->addClass  添加类
+			     -->removeClass 移除类
+				 -->hasClass  判断类是否存在元素上
+				 -->toggleClass 切换类（判断是否存在某类，存在去掉，不存在添加）
+			*/
+			$("input[type=checkbox]").change(function(){
+				console.log($(this).attr("checked"));//无论是否选中，一直输出默认状态的checked
+				
+				console.log($(this).prop("checked"));//随着元素是否被选中的状态进行变化false-->未选中;true-->选中
+			});
+			
+			$("div").click(function(){
+				$(this).toggleClass("pause");//判断是否有pause类，有的话就去掉
+				$(this).toggleClass("play");//判断是否有play类，没有的话加上
+			})
+		</script>
+	</body>
+</html>
