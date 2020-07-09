@@ -1,0 +1,60 @@
+*{
+	margin:0;
+	padding:0;
+}
+html,body{
+	height:100%;
+	width:100%;
+}
+html{
+	font-size:20px;
+}
+main{
+	width:30rem;
+	height:auto;
+	font-size:0.8rem;
+	margin:2rem auto;
+	padding:1rem;
+	height:auto;
+	border-radius:0.5rem;
+	box-shadow:0 0 0.5rem 0.5rem #999;
+	color:white;
+	background-color:rgba(0,0,0,.1);
+}
+h3{
+	width:100%;
+	height:2rem;
+	line-height:2rem;
+	text-align:center;
+	background-color:rgba(0,0,0,.5);
+	color:white;
+	margin:0.5rem 0;
+	cursor:pointer;
+}
+p{
+	width:100%;
+	height:6rem;
+	background-color:rgba(255,255,0,.1);
+	color:black;
+	margin:0.5rem 0;
+	text-align:center;
+	cursor:pointer;
+}
+button{
+	background-color:lightskyblue;
+	color:white;
+	border:none;
+	display:block;
+	width:4rem;
+	height:1.5rem;
+	text-align:center;
+	line-height:1.5rem;
+	margin:0 1rem;
+	cursor:pointer;
+}
+button:hover{
+	background-color:rgba(0,0,0,.5);
+}
+div{
+	display:flex;
+}

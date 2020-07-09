@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+		<title></title>
+		<link rel="stylesheet" href="./index.css">
+		<style>
+			@media (max-width:450px) {
+				main{
+					width:auto;
+					height:auto;
+					padding:0;
+					margin:0;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<section>
+				<div>
+					<button> slideDown </button>
+					<button> slideUp </button>
+					<button> slideToggle </button>
+				</div>
+				<p>THIS IS THE HELLO WORLD</p>
+			</section>
+		</main>
+		
+		<script src="../../jquery.min.js"></script>
+		<script>
+			$(function(){
+				$('button:nth-child(1)').click(function(){
+					$('p').slideDown(1000,function(){
+						alert('向下展开！')
+					})
+				})
+				$('button:nth-child(2)').click(function(){
+					$('p').slideUp(1000,function(){
+						setTimeout(function(){
+							alert('向上收起！')
+						},1000)
+					})
+				})
+				$('button:nth-child(3)').click(function(){
+					$('p').slideToggle(1000,function(){
+						alert('状态已切换! ')
+					})
+				})
+			})
+		</script>
+	</body>
+</html>

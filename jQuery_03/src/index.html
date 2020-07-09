@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+		<title>jQuery_03</title>
+		<link rel="stylesheet" href="./index.css">
+		<style>
+			@meida (max-width:450px) {
+				main{
+					width:auto;
+					height:auto;
+					margin:0;
+					padding:0;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<section>
+				<div>
+					<button>hide</button>
+					<button>show</button>
+				</div>
+				<p> THE FRIST HELLO WORLD </p>
+			</section>
+			<section>
+				<div>
+					<button>toggle</button>
+				</div>
+				<p> THE SECOND HELLO WORLD </p>
+			</section>
+		</main>
+		
+		<script src="../../jquery.min.js"></script>
+		<script>
+			$(function(){
+				$('button').eq(0).click(function(){
+					$('p').eq(0).hide(1000,"linear",function(){
+						alert('元素已隐藏！')
+					})
+				})
+				$('button').eq(1).click(function(){
+					$('p').eq(0).show(1000,"linear",function(){
+						alert('元素已显示！')
+					})
+				})
+				$('button').eq(2).click(function(){
+					$('p').eq(1).toggle(1000,"linear",function(){
+						alert('元素状态已切换! ')
+					})
+				})
+			})
+		</script>
+	</body>
+</html>

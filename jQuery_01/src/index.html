@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+		<title>jQuery_01</title>
+		<link rel="stylesheet" href="./index.css">
+		<style>
+			@media (max-width:450px) {
+				main{
+					width:auto;
+					height:auto;
+					margin:0;
+					padding:0;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<p>HELLO WORLD</p>
+			<div>
+				<button>点击隐藏</button>
+				<button>点击显示</button>
+			</div>
+		</main>
+		
+		<script src="../../jquery.min.js"></script>
+		<script>
+			/* jQuery入口函数
+			$(document).ready(function(){
+			    // 执行代码
+			});
+			或者
+			$(function(){
+			    // 执行代码
+			}); 
+			 */
+			$(document).ready(function(){
+				$("button:nth-child(1)").click(function(){
+					$("p").hide();
+				});
+				$("button:nth-child(2)").click(function(){
+					$("p").show();
+				});
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+		<title></title>
+		<link rel="stylesheet" href="./index.css">
+		<style>
+			@media (max-width:450px) {
+				main{
+					width:auto;
+					height:auto;
+					padding:0;
+					margin:0;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<section>
+				<div>
+					<button>20px</button>
+					<button>40px</button>
+					<button>60px</button>
+					<button>80px</button>
+					<button>100px</button>
+				</div>
+			    <div>
+					<p></p>
+				</div>
+				<section>
+					<div>
+						<button>Top</button>
+						<button>Bottom</button>
+						<button>Left</button>
+						<button>Right</button>
+					</div>
+				    <div>
+						<span></span>
+					</div>
+			</section>
+		</main>
+		
+		<script src="../../jquery.min.js"></script>
+		<script>
+			$(function(){
+				$('button').click(function(){
+					var p = $('p');
+					var span = $('span');
+					switch($(this).text()){
+						case '20px':
+					     p.animate({width:'20px',height:'20px'})
+						break;
+						case '40px':
+						 p.animate({width:'40px',height:'40px'})
+						break;
+						case '60px':
+						 p.animate({width:'60px',height:'60px'})
+						break;
+						case '80px':
+						 p.animate({width:'80px',height:'80px'})
+						break;
+						case '100px':
+						 p.animate({width:'100px',height:'100px'})
+						break;
+						case 'Top':
+						 span.animate({top:"+=5px"})
+						break;
+						case 'Bottom':
+						 span.animate({bottom:"+=5px"})
+						break;
+						case 'Left':
+						 span.animate({left:"+=5px"})
+						break;
+						case 'Right':
+						 span.animate({right:"+=5px"})
+						break;
+					}
+				})
+			})
+		</script>
+	</body>
+</html>
