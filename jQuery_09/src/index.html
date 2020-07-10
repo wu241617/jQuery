@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+		<title></title>
+		<link rel="stylesheet" href="index.css">
+		<style>
+			@media (max-width:450px){
+				main{
+					width:auto;
+					height:auto;
+					padding:0;
+					margin:0;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<section>
+				<div>
+					<button>Left</button>
+					<button>Right</button>
+					<button>Top</button>
+					<button>Bottom</button>
+				</div>
+				<div>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+				
+			</section>
+		</main>
+		
+		<script src="../../jquery.min.js"></script>
+		<script>
+			$(function(){
+				var oSpan = {
+					oSpan1 : $('span').eq(0),
+					oSpan2 : $('span').eq(1),
+					oSpan3 : $('span').eq(2),
+					oSpan4 : $('span').eq(3)
+				}
+				$('button').click(function(){
+					switch($(this).text()){
+						case 'Left' :
+						oSpan.oSpan1.addClass('left')
+						break;
+						case 'Right' :
+						oSpan.oSpan2.addClass('right')
+						break;
+						case 'Top' :
+						oSpan.oSpan3.addClass('top')
+						break;
+						case 'Bottom' :
+						oSpan.oSpan4.addClass('bottom')
+						break;
+					}
+				})
+			})
+		</script>
+	</body>
+</html>

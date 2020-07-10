@@ -1,0 +1,36 @@
+*{
+	margin:0;
+	padding:0;
+}
+html,body{
+	width:100%;
+	height:100%;
+}
+html{
+	font-size:20px;
+}
+main,section{
+	display:block;
+}
+main{
+	width:30rem;
+	height:autosss;
+	margin:2rem auto;
+	margin-top:0;
+	padding:1rem;
+	background-color:rgba(0,0,0,.1);
+	font-size:0.8rem;
+	border-top:0.1rem solid red;
+}
+h3{
+	width:100%;
+	height:5rem;
+	text-align:center;
+	line-height:5rem;
+	background-color:black;
+	color:white;
+}
+section{
+	width:100%;
+	height:60rem;
+}

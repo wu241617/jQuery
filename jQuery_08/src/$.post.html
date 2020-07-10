@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+		<title></title>
+		<link rel="stylesheet" href="./index.css">
+		<style>
+			@media (max-width:450px) {
+				main {
+					width: auto;
+					height: auto;
+					padding: 0;
+					margin: 0;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<section>
+				<button>获取数据</button>
+				<p style="height:100px;"></p>
+			</section>
+		</main>
+
+		<script src="../../jquery.min.js"></script>
+		<script>
+			$(function(){
+				$('button').click(function(){
+					$.post("test.php",function(data,textStatus){
+						console.log('dfdsf')
+						console.log(textStatus)
+					},"json")
+				})
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+		<title></title>
+		<link rel="stylesheet" href="./index.css">
+		<style>
+			b{
+				color:blue;
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<section>
+				<input id="check1" type="checkbox" checked="checked">
+				<label for="check1">Check me</label>
+				<ul></ul>
+			</section>
+		</main>
+		<script src="../../jquery.min.js"></script>
+		<script>
+			$(function(){
+				$("input").change(function() {
+					var $input = $(this);
+					$("ul").html("<li>.attr('checked'): <b>" + $input.attr('checked') + "</b></li><br>" +
+						"<li>.prop('checked'): <b>" + $input.prop('checked') + "</b></li><br>" +
+						"<li>.is(':checked'): <b>" + $input.is(':checked')) + "</b></li>"
+				}).change()
+			})
+		</script>
+
+	</body>
+</html>

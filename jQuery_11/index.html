@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+		<title></title>
+		<link rel="stylesheet" href="./index.css">
+		<style>
+			@media (max-width:450px) {
+				width:auto;
+				height:auto;
+				padding:0;
+				margin:0;
+			}
+		</style>
+	</head>
+	<body>
+		<h3> The Is Header</h3>
+		<main>
+			<section></section>
+		</main>
+		
+		<script src="../jquery.min.js"></script>
+		<script>
+			$(function(){
+				$(document).scroll(function(){
+					var top = $(this).scrollTop()
+					console.log(top)
+					top >= 100 ? $('h3').css({'position':'fixed','top':top-340 + 'px'}): $('h3').css({'position':'static'})
+				})
+			})
+		</script>
+	</body>
+</html>
