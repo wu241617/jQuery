@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+		<link rel="stylesheet" href="./index.css">
+		<style>
+			@media (max-width:450px) {
+				main{
+					width:auto;
+					height:auto;
+					padding:0;
+					margin:0;
+				}
+			}
+		</style>
+		<title></title>
+	</head>
+	<body>
+		<main>
+			<!-- 按钮区域 -->
+			<section>
+				<button>添加</button>
+			</section>
+			<hr>
+			<!-- 表格区 -->
+			<section>
+				<table>
+					<tr>
+						<th>账号</th>
+						<th>密码</th>
+						<th>邮箱</th>
+						<th>手机</th>
+						<th>操作</th>
+					</tr>
+					<tr>
+						<td>admin</td>
+						<td>05241617</td>
+						<td>1272689028@qq.com</td>
+						<td>13037175382</td>
+						<td>
+							<button id="edit1">编辑</button>
+							<button id="delete1">删除</button>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<!-- 添加弹出框 -->
+			<div>
+				<h3>添加信息</h3>
+				<hr>
+				<form>
+					<p>
+						<label>账号:</label><input type="text" placeholder="请输入你的账号">
+					</p>
+					<p>
+						<label>密码:</label><input type="password" placeholder="请输入你的密码">
+					</p>
+					<p>
+						<label>邮箱:</label><input type="text" placeholder="请输入你的邮箱">
+					</p>
+					<p>
+						<label>手机:</label><input type="text" placeholder="请输入你的手机">
+					</p>
+				</form>
+				<p>
+					<button id="addBtn">确定</button> <button id="addExit">取消</button>
+				</p>
+			</div>
+			<!-- 编辑弹出框 -->
+			<div>
+				<h3>编辑信息</h3>
+				<hr>
+				<form>
+					<p>
+						<label>账号:</label><input type="text" >
+					</p>
+					<p>
+						<label>密码:</label><input type="password" >
+					</p>
+					<p>
+						<label>邮箱:</label><input type="text" >
+					</p>
+					<p>
+						<label>手机:</label><input type="text" >
+					</p>
+				</form>
+				<p>
+					<button class="editBtn">确定</button> <button class="editExit">取消</button>
+				</p>
+			</div>
+			<!-- 删除弹出框 -->
+			<div>
+				<h3>您确定删除这条信息嘛</h3>
+				<hr>
+					<p>
+						<button class="delBtn">确定</button> <button class="delExit">取消</button>
+					</p>
+			</div>
+		</main>
+		
+		<script src="./jquery.min.js"></script>
+		<script src="index.js"></script>
+	</body>
+</html>
